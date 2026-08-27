@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Conecta Seguro - Segurança Digital</title>
+    <meta
+        name="description"
+        content="Cuidar+ é um aplicativo com dicas simples de segurança digital para pessoas idosas."
+    >
+
+    <title>Cuidar+ | Segurança Digital</title>
 
     <style>
         /* =========================
-           CONFIGURAÇÕES GERAIS
+           VARIÁVEIS
+        ========================== */
+
+        :root {
+            --azul: #075985;
+            --azul-escuro: #0c4a6e;
+            --azul-claro: #e0f2fe;
+
+            --verde: #166534;
+            --verde-claro: #dcfce7;
+
+            --amarelo: #854d0e;
+            --amarelo-claro: #fef9c3;
+
+            --vermelho: #991b1b;
+            --vermelho-claro: #fee2e2;
+
+            --fundo: #f4f7f9;
+            --branco: #ffffff;
+            --texto: #17202a;
+            --borda: #cbd5e1;
+
+            --foco: #f59e0b;
+        }
+
+
+        /* =========================
+           RESET
         ========================== */
 
         * {
@@ -24,425 +55,463 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f4f7f9;
-            color: #17202a;
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.6;
+            color: var(--texto);
+            background-color: var(--fundo);
         }
 
-        a {
-            color: inherit;
+        img {
+            max-width: 100%;
+            display: block;
         }
+
+
+        /* =========================
+           ACESSIBILIDADE
+        ========================== */
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 20px;
+
+            z-index: 1000;
+
+            padding: 12px 18px;
+
+            color: var(--branco);
+            background-color: #000;
+
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 20px;
+        }
+
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 4px solid var(--foco);
+            outline-offset: 3px;
+        }
+
 
         /* =========================
            CABEÇALHO
         ========================== */
 
         header {
-            background: #064b78;
-            color: white;
-            padding: 25px 6%;
-            border-bottom: 5px solid #f5c542;
+            color: var(--branco);
+            background-color: var(--azul);
+            padding: 24px 20px;
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: auto;
+            max-width: 1100px;
+            margin: 0 auto;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 30px;
+            gap: 16px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
         }
 
         .logo-icon {
-            background: white;
-            color: #064b78;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: bold;
-        }
+            width: 56px;
+            height: 56px;
 
-        .logo h1 {
+            display: grid;
+            place-items: center;
+
+            color: var(--azul);
+            background-color: var(--branco);
+
+            border-radius: 50%;
+
             font-size: 30px;
         }
 
-        .logo p {
-            font-size: 17px;
+        .logo h1 {
+            font-size: 32px;
+            line-height: 1.2;
         }
 
+        .logo p {
+            margin-top: 3px;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           NAVEGAÇÃO
+        ========================== */
+
         nav {
+            background-color: var(--azul-escuro);
+        }
+
+        .nav-content {
+            max-width: 1100px;
+            margin: 0 auto;
+
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 8px;
+
+            padding: 10px 20px;
         }
 
         nav a {
-            text-decoration: none;
-            background: white;
-            color: #064b78;
+            display: inline-block;
+
             padding: 12px 18px;
-            border-radius: 8px;
+
+            color: var(--branco);
+            text-decoration: none;
             font-weight: bold;
-            border: 2px solid white;
+
+            border-radius: 8px;
         }
 
-        nav a:hover,
-        nav a:focus {
-            background: #f5c542;
-            color: #17202a;
-            outline: 3px solid white;
+        nav a:hover {
+            background-color: var(--azul);
         }
+
 
         /* =========================
-           ÁREA PRINCIPAL
+           CONTEÚDO PRINCIPAL
         ========================== */
 
         main {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 6%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 35px 20px 60px;
         }
 
         section {
-            margin-bottom: 50px;
-            scroll-margin-top: 30px;
+            margin-top: 45px;
+            scroll-margin-top: 20px;
         }
 
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 40px;
-            align-items: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        section:first-child {
+            margin-top: 0;
         }
 
-        .hero h2 {
-            color: #064b78;
-            font-size: 42px;
-            line-height: 1.2;
+        section > h2 {
             margin-bottom: 20px;
+
+            color: var(--azul-escuro);
+
+            font-size: 30px;
+            line-height: 1.3;
         }
 
-        .hero p {
-            font-size: 23px;
-            margin-bottom: 25px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #087f5b;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 21px;
-            padding: 16px 25px;
-            border-radius: 10px;
-            border: 3px solid #087f5b;
-        }
-
-        .button:hover,
-        .button:focus {
-            background: #f5c542;
-            color: #17202a;
-            outline: 4px solid #064b78;
-        }
-
-        .hero-illustration {
-            background: #e7f4ff;
-            min-height: 260px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 100px;
-        }
 
         /* =========================
-           TÍTULOS
+           BOAS-VINDAS
         ========================== */
 
-        .section-title {
-            color: #064b78;
-            font-size: 35px;
-            margin-bottom: 10px;
+        .boas-vindas {
+            margin-bottom: 30px;
+            padding: 30px;
+
+            background-color: var(--branco);
+
+            border-left: 7px solid var(--azul);
+            border-radius: 16px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .section-description {
-            font-size: 21px;
-            margin-bottom: 25px;
+        .boas-vindas h2 {
+            margin-bottom: 8px;
+
+            color: var(--azul-escuro);
+
+            font-size: 32px;
+            line-height: 1.3;
         }
+
+        .boas-vindas p {
+            font-size: 20px;
+        }
+
 
         /* =========================
-           CARTÕES
+           CARDS DA HOME
         ========================== */
 
         .cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 20px;
         }
 
         .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 8px solid #087f5b;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            display: block;
+
+            padding: 25px;
+
+            color: var(--texto);
+            background-color: var(--branco);
+
+            border: 2px solid var(--borda);
+            border-radius: 14px;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
         }
 
-        .card h3 {
-            color: #064b78;
-            font-size: 27px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            font-size: 20px;
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--azul);
         }
 
         .card-icon {
-            font-size: 45px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 40px;
         }
+
+        .card h3 {
+            margin-bottom: 6px;
+
+            color: var(--azul-escuro);
+
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        .card p {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           DICA DO DIA
+        ========================== */
+
+        .dica {
+            padding: 25px;
+
+            background-color: var(--amarelo-claro);
+
+            border: 2px solid #ca8a04;
+            border-radius: 14px;
+        }
+
+        .dica h3 {
+            margin-bottom: 10px;
+
+            color: var(--amarelo);
+
+            font-size: 25px;
+            line-height: 1.3;
+        }
+
+        .dica p + p {
+            margin-top: 12px;
+        }
+
+
+        /* =========================
+           SEGURANÇA DIGITAL
+        ========================== */
+
+        .seguranca-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .dica-seguranca {
+            padding: 25px;
+
+            background-color: var(--branco);
+
+            border: 2px solid var(--borda);
+            border-radius: 14px;
+        }
+
+        .dica-seguranca h3 {
+            margin-bottom: 12px;
+
+            color: var(--azul-escuro);
+
+            font-size: 23px;
+            line-height: 1.3;
+        }
+
+        .dica-seguranca ul {
+            padding-left: 25px;
+        }
+
+        .dica-seguranca li {
+            margin-bottom: 8px;
+        }
+
 
         /* =========================
            ALERTA
         ========================== */
 
-        .alert {
-            background: #fff7d6;
-            border: 3px solid #d39e00;
-            border-radius: 15px;
-            padding: 25px;
+        .alerta {
             margin-top: 25px;
+            padding: 20px;
+
+            background-color: var(--vermelho-claro);
+
+            border-left: 7px solid var(--vermelho);
+            border-radius: 10px;
         }
 
-        .alert h3 {
-            color: #704f00;
-            font-size: 27px;
+        .alerta h3 {
+            margin-bottom: 5px;
+            color: var(--vermelho);
+        }
+
+
+        /* =========================
+           AJUDA
+        ========================== */
+
+        .ajuda {
+            padding: 25px;
+
+            background-color: var(--verde-claro);
+
+            border: 2px solid #86efac;
+            border-radius: 14px;
+        }
+
+        .ajuda h3 {
             margin-bottom: 10px;
+
+            color: var(--verde);
+
+            font-size: 25px;
+            line-height: 1.3;
         }
+
 
         /* =========================
-           CHECKLIST
+           BOTÃO
         ========================== */
 
-        .checklist {
-            background: #064b78;
-            color: white;
-            padding: 35px;
-            border-radius: 15px;
-        }
+        .botao {
+            display: inline-block;
 
-        .checklist h2 {
-            font-size: 34px;
-            margin-bottom: 20px;
-        }
+            margin-top: 15px;
+            padding: 14px 22px;
 
-        .checklist ul {
-            list-style: none;
-        }
+            color: var(--branco);
+            background-color: var(--azul);
 
-        .checklist li {
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-            font-size: 21px;
-        }
+            border-radius: 9px;
 
-        .checklist li:last-child {
-            border-bottom: none;
-        }
-
-        .check {
-            display: inline-flex;
-            width: 32px;
-            height: 32px;
-            background: #f5c542;
-            color: #17202a;
-            border-radius: 5px;
-            justify-content: center;
-            align-items: center;
             font-weight: bold;
-            margin-right: 10px;
+            text-decoration: none;
         }
 
-        /* =========================
-           FRASES DE ATENÇÃO
-        ========================== */
-
-        .danger {
-            border-left-color: #c92a2a;
+        .botao:hover {
+            background-color: var(--azul-escuro);
         }
 
-        .danger h3 {
-            color: #a61e1e;
-        }
-
-        .safe {
-            border-left-color: #087f5b;
-        }
 
         /* =========================
            RODAPÉ
         ========================== */
 
         footer {
-            background: #17202a;
-            color: white;
+            padding: 30px 20px;
+
+            color: var(--branco);
+            background-color: #17202a;
+
             text-align: center;
-            padding: 35px 6%;
         }
 
-        footer h2 {
-            font-size: 27px;
-            margin-bottom: 10px;
+        footer p + p {
+            margin-top: 8px;
         }
 
-        footer p {
-            font-size: 18px;
-        }
-
-        /* =========================
-           ACESSIBILIDADE
-        ========================== */
-
-        :focus-visible {
-            outline: 4px solid #f5c542;
-            outline-offset: 3px;
-        }
-
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: 10px;
-            background: #f5c542;
-            color: #17202a;
-            padding: 15px;
-            font-weight: bold;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            left: 10px;
-        }
 
         /* =========================
            RESPONSIVIDADE
         ========================== */
 
-        @media (max-width: 800px) {
+        @media (max-width: 700px) {
 
             body {
-                font-size: 19px;
+                font-size: 17px;
             }
 
             .header-content {
-                flex-direction: column;
                 align-items: flex-start;
             }
 
-            nav {
-                width: 100%;
-            }
-
-            nav a {
-                flex: 1;
-                text-align: center;
-                min-width: 130px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 25px;
-            }
-
-            .hero h2 {
-                font-size: 34px;
-            }
-
-            .hero p {
-                font-size: 21px;
-            }
-
-            .hero-illustration {
-                min-height: 180px;
-                font-size: 70px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 30px;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            main {
-                padding: 25px 4%;
-            }
-
-            header {
-                padding: 20px 4%;
-            }
-
             .logo h1 {
-                font-size: 25px;
+                font-size: 28px;
             }
 
-            nav {
-                flex-direction: column;
+            .logo p {
+                font-size: 15px;
+            }
+
+            .cards,
+            .seguranca-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .boas-vindas {
+                padding: 25px;
+            }
+
+            .boas-vindas h2 {
+                font-size: 28px;
+            }
+
+            .boas-vindas p {
+                font-size: 19px;
             }
 
             nav a {
                 width: 100%;
+                text-align: center;
             }
 
-            .hero {
-                padding: 20px;
-            }
-
-            .hero h2 {
-                font-size: 30px;
-            }
-
-            .card {
-                padding: 22px;
-            }
-
-            .checklist {
-                padding: 25px;
+            section > h2 {
+                font-size: 27px;
             }
         }
+
 
         /* =========================
            REDUÇÃO DE MOVIMENTO
         ========================== */
 
         @media (prefers-reduced-motion: reduce) {
+
             html {
                 scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                animation: none !important;
             }
         }
     </style>
@@ -450,219 +519,208 @@
 
 <body>
 
-    <!-- Link para facilitar a navegação por teclado -->
-    <a href="#conteudo" class="skip-link">
+    <!-- Link para facilitar a navegação de usuários de leitores de tela -->
+    <a class="skip-link" href="#conteudo">
         Ir para o conteúdo principal
     </a>
+
 
     <!-- CABEÇALHO -->
     <header>
         <div class="header-content">
 
             <div class="logo">
-                <div class="logo-icon" aria-hidden="true">✓</div>
+
+                <div
+                    class="logo-icon"
+                    aria-hidden="true"
+                >
+                    🛡️
+                </div>
 
                 <div>
-                    <h1>Conecta Seguro</h1>
-                    <p>Internet com mais segurança</p>
-                </div>
-            </div>
+                    <h1>Cuidar+</h1>
 
-            <nav aria-label="Navegação principal">
-                <a href="#inicio">Início</a>
-                <a href="#dicas">Dicas</a>
-                <a href="#golpes">Golpes</a>
-                <a href="#checklist">Checklist</a>
-            </nav>
+                    <p>
+                        Mais segurança para o seu dia a dia
+                    </p>
+                </div>
+
+            </div>
 
         </div>
     </header>
+
+
+    <!-- MENU -->
+    <nav aria-label="Navegação principal">
+
+        <div class="nav-content">
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            <a href="#seguranca">
+                Segurança Digital
+            </a>
+
+            <a href="#dicas">
+                Dicas
+            </a>
+
+            <a href="#ajuda">
+                Ajuda
+            </a>
+
+        </div>
+
+    </nav>
+
 
     <!-- CONTEÚDO -->
     <main id="conteudo">
 
         <!-- INÍCIO -->
-        <section id="inicio" class="hero" aria-labelledby="titulo-principal">
+        <section
+            id="inicio"
+            aria-labelledby="titulo-inicio"
+        >
 
-            <div>
-                <h2 id="titulo-principal">
-                    Aprenda a usar a internet com segurança
+            <div class="boas-vindas">
+
+                <h2 id="titulo-inicio">
+                    Olá! Como podemos ajudar?
                 </h2>
 
                 <p>
-                    Informações simples para ajudar você a proteger
-                    seus dados, seu dinheiro e sua privacidade.
+                    Encontre dicas simples para usar a internet
+                    com mais segurança e confiança.
                 </p>
 
-                <a href="#dicas" class="button">
-                    Ver dicas de segurança
+            </div>
+
+
+            <div class="cards">
+
+                <a
+                    class="card"
+                    href="#seguranca"
+                >
+                    <div
+                        class="card-icon"
+                        aria-hidden="true"
+                    >
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Segurança Digital
+                    </h3>
+
+                    <p>
+                        Aprenda a reconhecer golpes,
+                        mensagens falsas e links perigosos.
+                    </p>
                 </a>
-            </div>
 
-            <div class="hero-illustration" aria-label="Ilustração de um cadeado">
-                🔒
-            </div>
 
-        </section>
+                <a
+                    class="card"
+                    href="#dica-do-dia"
+                >
+                    <div
+                        class="card-icon"
+                        aria-hidden="true"
+                    >
+                        💡
+                    </div>
 
-        <!-- DICAS -->
-        <section id="dicas" aria-labelledby="titulo-dicas">
-
-            <h2 id="titulo-dicas" class="section-title">
-                Dicas importantes
-            </h2>
-
-            <p class="section-description">
-                Pequenos cuidados podem fazer uma grande diferença.
-            </p>
-
-            <div class="cards">
-
-                <article class="card safe">
-                    <div class="card-icon" aria-hidden="true">🔑</div>
-
-                    <h3>Use senhas fortes</h3>
+                    <h3>
+                        Dica do Dia
+                    </h3>
 
                     <p>
-                        Crie senhas diferentes para cada serviço.
-                        Evite usar nome, data de nascimento ou números
-                        fáceis de descobrir.
+                        Uma dica rápida para deixar
+                        sua vida digital mais segura.
                     </p>
-                </article>
+                </a>
 
-                <article class="card safe">
-                    <div class="card-icon" aria-hidden="true">📱</div>
 
-                    <h3>Proteja seu celular</h3>
+                <a
+                    class="card"
+                    href="#ajuda"
+                >
+                    <div
+                        class="card-icon"
+                        aria-hidden="true"
+                    >
+                        🆘
+                    </div>
+
+                    <h3>
+                        Preciso de Ajuda
+                    </h3>
 
                     <p>
-                        Use uma senha ou outro bloqueio de tela.
-                        Nunca deixe seu celular desbloqueado em
-                        lugares públicos.
+                        Veja o que fazer quando receber
+                        uma mensagem ou ligação suspeita.
                     </p>
-                </article>
+                </a>
 
-                <article class="card safe">
-                    <div class="card-icon" aria-hidden="true">📧</div>
 
-                    <h3>Cuidado com mensagens</h3>
+                <a
+                    class="card"
+                    href="#contatos"
+                >
+                    <div
+                        class="card-icon"
+                        aria-hidden="true"
+                    >
+                        👨‍👩‍👧
+                    </div>
+
+                    <h3>
+                        Contato de Confiança
+                    </h3>
 
                     <p>
-                        Desconfie de mensagens que pedem dinheiro,
-                        senhas, códigos de segurança ou informações
-                        pessoais.
+                        Procure uma pessoa de confiança
+                        quando estiver com alguma dúvida.
                     </p>
-                </article>
-
-                <article class="card safe">
-                    <div class="card-icon" aria-hidden="true">🌐</div>
-
-                    <h3>Confira os sites</h3>
-
-                    <p>
-                        Antes de colocar seus dados, confira se está
-                        no site correto. Tome cuidado com links
-                        recebidos por mensagens.
-                    </p>
-                </article>
-
-                <article class="card safe">
-                    <div class="card-icon" aria-hidden="true">🔄</div>
-
-                    <h3>Mantenha tudo atualizado</h3>
-
-                    <p>
-                        Sempre que possível, mantenha o celular,
-                        computador e aplicativos atualizados.
-                    </p>
-                </article>
-
-                <article class="card safe">
-                    <div class="card-icon" aria-hidden="true">👨‍👩‍👧</div>
-
-                    <h3>Peça ajuda</h3>
-
-                    <p>
-                        Se uma mensagem parecer estranha, não tenha
-                        vergonha de pedir ajuda a uma pessoa de confiança.
-                    </p>
-                </article>
+                </a>
 
             </div>
 
         </section>
 
-        <!-- GOLPES -->
-        <section id="golpes" aria-labelledby="titulo-golpes">
 
-            <h2 id="titulo-golpes" class="section-title">
-                Atenção aos golpes
+        <!-- DICA DO DIA -->
+        <section
+            id="dica-do-dia"
+            aria-labelledby="titulo-dica"
+        >
+
+            <h2 id="titulo-dica">
+                💡 Dica do Dia
             </h2>
 
-            <p class="section-description">
-                Alguns golpes usam situações urgentes para fazer você
-                agir sem pensar.
-            </p>
+            <div class="dica">
 
-            <div class="cards">
+                <h3>
+                    Nunca informe seu código de segurança
+                </h3>
 
-                <article class="card danger">
-                    <div class="card-icon" aria-hidden="true">🚨</div>
-
-                    <h3>“Preciso de dinheiro agora!”</h3>
-
-                    <p>
-                        Alguém conhecido pode ter sua foto e pedir
-                        dinheiro por mensagem. Antes de transferir,
-                        confirme a identidade da pessoa por outro meio.
-                    </p>
-                </article>
-
-                <article class="card danger">
-                    <div class="card-icon" aria-hidden="true">🎁</div>
-
-                    <h3>“Você ganhou um prêmio!”</h3>
-
-                    <p>
-                        Desconfie de prêmios inesperados que exigem
-                        pagamento, senha ou código para serem recebidos.
-                    </p>
-                </article>
-
-                <article class="card danger">
-                    <div class="card-icon" aria-hidden="true">🏦</div>
-
-                    <h3>“Sua conta será bloqueada!”</h3>
-
-                    <p>
-                        Bancos e empresas podem ser usados como isca.
-                        Não clique imediatamente. Entre no aplicativo
-                        ou site oficial por conta própria.
-                    </p>
-                </article>
-
-                <article class="card danger">
-                    <div class="card-icon" aria-hidden="true">🔢</div>
-
-                    <h3>Nunca compartilhe códigos</h3>
-
-                    <p>
-                        Códigos recebidos por SMS ou aplicativo podem
-                        proteger sua conta. Nunca informe esses códigos
-                        para outra pessoa.
-                    </p>
-                </article>
-
-            </div>
-
-            <div class="alert" role="note">
-
-                <h3>⚠️ Regra de ouro</h3>
+                <p>
+                    Bancos, empresas e pessoas de confiança
+                    não devem pedir que você informe códigos
+                    recebidos por SMS ou aplicativos.
+                </p>
 
                 <p>
                     <strong>
-                        Se alguém estiver pressionando você para agir
-                        rapidamente, pare e confira antes.
+                        Se alguém pedir um código,
+                        pare e confirme antes.
                     </strong>
                 </p>
 
@@ -670,111 +728,273 @@
 
         </section>
 
-        <!-- CHECKLIST -->
-        <section id="checklist" aria-labelledby="titulo-checklist">
 
-            <div class="checklist">
+        <!-- SEGURANÇA -->
+        <section
+            id="seguranca"
+            aria-labelledby="titulo-seguranca"
+        >
 
-                <h2 id="titulo-checklist">
-                    Antes de clicar, pergunte:
-                </h2>
+            <h2 id="titulo-seguranca">
+                🛡️ Segurança Digital
+            </h2>
 
-                <ul>
-                    <li>
-                        <span class="check" aria-hidden="true">1</span>
-                        Eu conheço quem enviou esta mensagem?
-                    </li>
 
-                    <li>
-                        <span class="check" aria-hidden="true">2</span>
-                        Estou esperando esta mensagem ou ligação?
-                    </li>
+            <div class="seguranca-grid">
 
-                    <li>
-                        <span class="check" aria-hidden="true">3</span>
-                        Estão pedindo minha senha ou código?
-                    </li>
+                <article class="dica-seguranca">
 
-                    <li>
-                        <span class="check" aria-hidden="true">4</span>
-                        Estão pedindo dinheiro com urgência?
-                    </li>
+                    <h3>
+                        📱 Golpes pelo WhatsApp
+                    </h3>
 
-                    <li>
-                        <span class="check" aria-hidden="true">5</span>
-                        Posso confirmar essa informação com alguém?
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            Desconfie de pedidos urgentes de dinheiro.
+                        </li>
+
+                        <li>
+                            Confirme a identidade da pessoa.
+                        </li>
+
+                        <li>
+                            Não envie códigos recebidos por SMS.
+                        </li>
+
+                        <li>
+                            Evite clicar em links desconhecidos.
+                        </li>
+                    </ul>
+
+                </article>
+
+
+                <article class="dica-seguranca">
+
+                    <h3>
+                        💳 Segurança no Pix
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Confira o nome do destinatário.
+                        </li>
+
+                        <li>
+                            Verifique o valor antes de confirmar.
+                        </li>
+
+                        <li>
+                            Não faça transferências sob pressão.
+                        </li>
+
+                        <li>
+                            Na dúvida, peça ajuda.
+                        </li>
+                    </ul>
+
+                </article>
+
+
+                <article class="dica-seguranca">
+
+                    <h3>
+                        🔑 Senhas
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Use senhas diferentes para cada serviço.
+                        </li>
+
+                        <li>
+                            Evite usar datas de nascimento.
+                        </li>
+
+                        <li>
+                            Não compartilhe suas senhas.
+                        </li>
+
+                        <li>
+                            Ative a autenticação em duas etapas.
+                        </li>
+                    </ul>
+
+                </article>
+
+
+                <article class="dica-seguranca">
+
+                    <h3>
+                        🔗 Links suspeitos
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Não clique em links desconhecidos.
+                        </li>
+
+                        <li>
+                            Desconfie de promoções exageradas.
+                        </li>
+
+                        <li>
+                            Observe erros de escrita.
+                        </li>
+
+                        <li>
+                            Procure o site oficial diretamente.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+
+            <aside
+                class="alerta"
+                role="note"
+            >
+
+                <h3>
+                    ⚠️ Lembre-se
+                </h3>
+
+                <p>
+                    Se uma mensagem causar medo, pressão
+                    ou urgência, pare. Golpistas costumam
+                    usar essas emoções para fazer a pessoa
+                    agir sem pensar.
+                </p>
+
+            </aside>
+
+        </section>
+
+
+        <!-- DICAS -->
+        <section
+            id="dicas"
+            aria-labelledby="titulo-dicas"
+        >
+
+            <h2 id="titulo-dicas">
+                📚 Dicas importantes
+            </h2>
+
+            <article class="dica-seguranca">
+
+                <h3>
+                    Antes de clicar, pense
+                </h3>
+
+                <p>
+                    Pergunte a si mesmo:
+                    <strong>
+                        “Eu estava esperando esta mensagem?”
+                    </strong>
+                </p>
+
+                <p>
+                    Se a resposta for não, não clique
+                    imediatamente. Procure confirmar a
+                    informação por um canal oficial.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- AJUDA -->
+        <section
+            id="ajuda"
+            aria-labelledby="titulo-ajuda"
+        >
+
+            <h2 id="titulo-ajuda">
+                🆘 Preciso de Ajuda
+            </h2>
+
+            <div class="ajuda">
+
+                <h3>
+                    Está em dúvida? Não faça nada ainda.
+                </h3>
+
+                <p>
+                    Se você recebeu uma mensagem estranha,
+                    não envie dinheiro, documentos, senhas
+                    ou códigos.
+                </p>
+
+                <p>
+                    Converse com alguém de confiança e,
+                    quando necessário, procure diretamente
+                    o banco ou empresa pelos canais oficiais.
+                </p>
+
+                <a
+                    href="#contatos"
+                    class="botao"
+                >
+                    Ver contato de confiança
+                </a>
 
             </div>
 
         </section>
 
-        <!-- MENSAGEM FINAL -->
-        <section aria-labelledby="titulo-final">
 
-            <div class="card">
+        <!-- CONTATOS -->
+        <section
+            id="contatos"
+            aria-labelledby="titulo-contatos"
+        >
 
-                <div class="card-icon" aria-hidden="true">💙</div>
+            <h2 id="titulo-contatos">
+                👨‍👩‍👧 Contato de Confiança
+            </h2>
 
-                <h2 id="titulo-final" class="section-title">
-                    Não tenha pressa
-                </h2>
+            <article class="dica-seguranca">
+
+                <h3>
+                    Uma pessoa de confiança pode ajudar
+                </h3>
 
                 <p>
-                    A internet deve facilitar sua vida, não causar medo.
-                    Quando algo parecer estranho, pare, respire e procure
-                    ajuda antes de tomar qualquer decisão.
+                    Quando tiver dúvida sobre uma mensagem,
+                    ligação, pagamento ou pedido de informações,
+                    converse com alguém de sua confiança antes
+                    de tomar uma decisão.
                 </p>
 
-            </div>
+                <p>
+                    <strong>
+                        Você não precisa resolver tudo sozinho.
+                    </strong>
+                </p>
+
+            </article>
 
         </section>
 
     </main>
 
+
     <!-- RODAPÉ -->
     <footer>
 
-        <h2>Conecta Seguro</
-
         <p>
-            Informação simples para uma internet mais segura.
+            <strong>Cuidar+</strong>
         </p>
 
         <p>
-            © 2026 - Projeto educativo
+            Informação simples para uma vida digital mais segura.
         </p>
 
     </footer>
 
 </body>
 </html>
-function lerEmVozAlta() {
-    if (lendo === true) {
-
-        // se estiver pausado
-        if (speechSynthesis.paused === true) {
-        // continua de onde parou
-        speechSynthesis.resume();
-        } else {
-        // pausa
-        speechSynthesis.pause();
-        }
-
-    return;
-}
-
-let conteudo = document.querySelector("main");
-let texto = conteudo.innerText;
-
-let fala = new SpeechSynthesisUtterance(texto);
-
-fala.lang = "pt-BR";
-fala.onend = finalizarLeitura;
-
-speechSynthesis.cancel();
-speechSynthesis.speak(fala);
-
-lendo = true;
-}
