@@ -540,3 +540,197 @@
 
 </body>
 </html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"
+<title>Segurança Digital para Idosos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+transform: translate(-50%, -50%)
+max-width: 90%
+width: 600px
+margin: 0 !important;
+
+.local {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed var(--primaria);
+
+    
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 90%;
+    width: 600px;
+    margin: 0 !important;
+
+}
+.caixa-direitos {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+.elemento {
+translate: 50px 20px;
+}
+translate: -30px -10px;
+translate: 100% 0;
+.elemento {
+translate: 20px 0;
+rotate: 10deg;
+scale: 1.2;
+}
+transform: translate(50px, 20px);
+ol {
+padding: 40px;
+}
+<button class="botao-ajuda">Fechar</button>
+.modal-fundo {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+}
+<script src="script.js"></script>
+let btnAjuda = document.querySelector(".botao-ajuda");
+let btnFechar = document.querySelector(".botao-ajuda");
+let modal = document.querySelector(".botao-ajuda");
+<button class="botao-ajuda botao-fechar">Fechar</button>
+let btnAjuda = document.querySelector(".botao-ajuda");
+let btnFechar = document.querySelector(".botao-ajuda");
+let modal = document.querySelector(".modal-fundo");
+btnAjuda.addEventListener("click", abreModal);
+btnFechar.addEventListener("click", fechaModal);
+function abreModal() {
+modal.style.display = "block";
+}
+
+function fechaModal() {
+modal.style.display = "none";
+}
+Crie um menu de acessibilidade simples em HTML e CSS com um botão para aumentar e diminuir a fonte e leitura em voz alta. Continue mantendo todas as classes e IDs no idioma português-Brasil.
+<!-- MENU DE ACESSIBILIDADE -->
+<nav class="barra-acessibilidade" aria-label="Controles de Acessibilidade">
+    <button class="botao-controle" onclick="alterarFonte(2)" title="Aumentar texto">A+ Aumentar</button>
+    <button class="botao-controle" onclick="alterarFonte(-2)" title="Diminuir texto">A- Diminuir</button>
+    <button class="botao-controle botao-leitura" onclick="lerTexto()" id="btn-voz">�� Ouvir Página</button>
+    <button class="botao-controle" onclick="pararLeitura()">⏹️ Parar</button>
+</nav>
+/* --- MENU DE ACESSIBILIDADE --- */
+.barra-acessibilidade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: white;
+    
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    z-index: 1000;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.botao-controle {
+    background: white;
+    color: #333;
+    border: 2px solid var(--secundario);
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botao-controle:hover {
+    background: var(--secundario);
+}
+
+.botao-leitura {
+    background: #28a745;
+    color: white;
+    border: none;
+}
+.banner h1 {
+    padding-top: 70px;
+}
+@media (max-width: 600px) {
+    .banner h1 {
+    padding-top: 80px;
+    }
+}
+// TAMANHO DE FONTES
+let tamanhoFonteAtual = 16;
+const valorAdicionado = 2;
+const valorSubtraido = 2;
+<button id="btnAumentaTexto" class="botao-controle" title="Aumentar texto">A+ Aumentar</button>
+<button id="btnDiminuiTexto" class="botao-controle" title="Diminuir texto">A- Diminuir</button>
+let btnAumentaFonte = document.getElementById("btnAumentaTexto");
+let btnDiminuiFonte = document.getElementById("btnDiminuiTexto");
+btnAumentaFonte.addEventListener("click", aumentaFonte);
+btnDiminuiFonte.addEventListener("click", diminuiFonte);
+function aumentaFonte() {
+    tamanhoFonteAtual = tamanhoFonteAtual + valorAdicionado;
+    document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`;
+} 
+function diminuiFonte() {
+    tamanhoFonteAtual = tamanhoFonteAtual - valorSubtraido;
+    document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`;
+}
+
+document.documentElement.style.fontSize = 20;
+let tamanhoFonteAtual = 16;
+const valorAdicionado = 2 
+
+function aumentaFonte() { 
+      tamanhoFonteAtual = tamanhoFonteAtual + valorAdicionado;
+      document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`
+} 
+<main>
+    <!-- todo o conteúdo do site -->
+</main>
+// LEITURA DE TELA
+let lendo = false;
+const btnLeitura = document.getElementById("btnVoz");
+btnLeitura.addEventListener("click", lerEmVozAlta);
+function lerEmVozAlta() {
+    let conteudo = document.querySelector("main");
+}
+function lerEmVozAlta() {
+    let conteudo = document.querySelector("main");
+    let texto = conteudo.innerText;
+}
+let fala = new SpeechSynthesisUtterance(texto);
+fala.lang = "pt-BR";
+fala.onend = finalizarLeitura;
+lendo = true
+function lerEmVozAlta() {
+    let conteudo = document.querySelector("main");
+    let texto = conteudo.innerText;
+
+    let fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+    fala.onend = finalizarLeitura;
+
+    lendo = true;
+
+}
+finalizarLeitura is not defined
+speechSynthesis.speak(fala);
+function finalizarLeitura() {
+    // implemente aqui
+}
